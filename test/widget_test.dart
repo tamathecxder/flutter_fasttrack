@@ -10,7 +10,12 @@ void main() {
   // boolean datatype
   bool isHappy = false;
 
+  // List datatype
+  List<String> hobbies = ["Gaming", "Coding", "Design"];
+
   print("Is $name feels happy? $isHappy");
   print("And now $name is $age years old.");
   print("He have salary that the total is ${salary.abs()}");
+
+  print("His favorite hobby is ${hobbies[1]}");
 }
