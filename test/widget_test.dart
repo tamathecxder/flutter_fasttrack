@@ -13,9 +13,13 @@ void main() {
   // List datatype
   List<String> hobbies = ["Gaming", "Coding", "Design"];
 
+  // Map datatype
+  Map devices = {"laptop": "Acer Aspire 3", "handphone": "Samsung A013"};
+
   print("Is $name feels happy? $isHappy");
   print("And now $name is $age years old.");
   print("He have salary that the total is ${salary.abs()}");
 
   print("His favorite hobby is ${hobbies[1]}");
+  print("Also, he has a working devices, for example ${devices['laptop']}");
 }
