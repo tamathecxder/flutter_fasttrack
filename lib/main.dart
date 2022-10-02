@@ -10,84 +10,35 @@ class FastTrackApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(fontFamily: "Montserrat"),
       home: Scaffold(
-          appBar: AppBar(
-            title: const Text(
-              "Flutter App",
-              style: TextStyle(fontSize: 18),
-            ),
-            centerTitle: true,
+        appBar: AppBar(
+          title: const Text(
+            "Flutter App",
+            style: TextStyle(fontSize: 18),
           ),
-          body: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.red,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.amber,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.blue,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.red,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.amber,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.blue,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.red,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-                Container(
-                  width: 150,
-                  height: 100,
-                  color: Colors.amber,
-                  child: Center(
-                    child: Text("Hello, Flutter!"),
-                  ),
-                ),
-              ],
+          centerTitle: true,
+        ),
+        body: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              width: 50,
+              height: 50,
+              color: Colors.teal,
             ),
-          )),
+            Container(
+              width: 75,
+              height: 75,
+              color: Colors.amber,
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              color: Colors.purple[400],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
