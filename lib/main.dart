@@ -17,24 +17,38 @@ class FastTrackApp extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+        body: GridView(
+          padding: EdgeInsets.all(10),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 1 / 2,
+          ),
           children: [
             Container(
-              width: 50,
-              height: 50,
-              color: Colors.teal,
+              color: Colors.lime,
             ),
             Container(
-              width: 75,
-              height: 75,
-              color: Colors.amber,
+              color: Colors.teal[300],
             ),
             Container(
-              width: 100,
-              height: 100,
-              color: Colors.purple[400],
+              color: Colors.blue[600],
+            ),
+            Container(
+              color: Colors.amber[200],
+            ),
+            Container(
+              color: Colors.lime,
+            ),
+            Container(
+              color: Colors.teal[300],
+            ),
+            Container(
+              color: Colors.blue[600],
+            ),
+            Container(
+              color: Colors.amber[200],
             ),
           ],
         ),
