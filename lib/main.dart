@@ -4,64 +4,52 @@ void main(List<String> args) {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
-  MyApp({super.key});
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  int counter = 0;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Increment Apps"),
-          centerTitle: true,
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "$counter",
-                style: TextStyle(fontSize: 60),
-              ),
-              Padding(padding: EdgeInsets.all(6)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: <int>() {
-                      counter = counter - 1;
-                      if (counter < 0) {
-                        return counter = 0;
-                      }
-                      print(counter);
+      home: HomePage(),
+    );
+  }
+}
 
-                      setState(() {});
-                    },
-                    child: Text("-"),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
+class HomePage extends StatelessWidget {
+  const HomePage({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Dialog Apps"),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                title: Text("Peringatan!"),
+                content: Text("Lorem ipsum dolor sit amet"),
+                actions: [
                   ElevatedButton(
                     onPressed: () {
-                      counter = counter + 1;
-                      print(counter);
-
-                      setState(() {});
+                      Navigator.pop(context);
                     },
-                    child: Text("+"),
+                    child: Text("Close"),
                   ),
                 ],
               ),
-            ],
-          ),
+            );
+          },
+          child: Text("Open Dialog"),
         ),
       ),
     );
