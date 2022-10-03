@@ -39,18 +39,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Flutter App"),
+          title: Text("First App"),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: rawData
-                .map(
-                  (data) =>
-                      KotakWarna(color: data["color"], title: data["text"]),
-                )
-                .toList(),
+        body: GridView.builder(
+          padding: EdgeInsets.all(10),
+          itemCount: 25,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, mainAxisSpacing: 5, crossAxisSpacing: 5),
+          itemBuilder: (context, index) => KotakWarna(
+            color: Color.fromARGB(255, 100 + Random().nextInt(256),
+                100 + Random().nextInt(256), 100 + Random().nextInt(256)),
+            title: "",
           ),
         ),
       ),
