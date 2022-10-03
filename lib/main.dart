@@ -9,47 +9,42 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  const HomePage({
-    Key? key,
-  }) : super(key: key);
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dialog Apps"),
+        title: Text("Flutter SnackBar"),
         centerTitle: true,
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            showDialog(
-              context: context,
-              builder: (context) => AlertDialog(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text("Lorem ipsum dolor sit amet!"),
+                action: SnackBarAction(
+                  label: "CANCEL",
+                  onPressed: () {
+                    print('canceled');
+                  },
                 ),
-                title: Text("Peringatan!"),
-                content: Text("Lorem ipsum dolor sit amet"),
-                actions: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text("Close"),
-                  ),
-                ],
+                backgroundColor: Colors.black,
+                duration: Duration(seconds: 2),
+                margin: EdgeInsets.all(20),
+                behavior: SnackBarBehavior.floating,
               ),
             );
           },
-          child: Text("Open Dialog"),
+          child: Text("Show SnackBar"),
         ),
       ),
     );
