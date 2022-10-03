@@ -2,6 +2,13 @@ import 'package:fasttrack_app/widgets/widget_page_1.dart';
 import 'package:fasttrack_app/widgets/widget_part_10.dart';
 import 'package:fasttrack_app/widgets/widget_part_11.dart';
 import 'package:fasttrack_app/widgets/widget_part_12.dart';
+import 'package:fasttrack_app/widgets/widget_part_13.dart';
+import 'package:fasttrack_app/widgets/widget_part_14.dart';
+import 'package:fasttrack_app/widgets/widget_part_15.dart';
+import 'package:fasttrack_app/widgets/widget_part_16.dart';
+import 'package:fasttrack_app/widgets/widget_part_17.dart';
+import 'package:fasttrack_app/widgets/widget_part_18.dart';
+import 'package:fasttrack_app/widgets/widget_part_19.dart';
 import 'package:fasttrack_app/widgets/widget_part_2.dart';
 import 'package:fasttrack_app/widgets/widget_part_3.dart';
 import 'package:fasttrack_app/widgets/widget_part_4.dart';
@@ -23,7 +30,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WidgetPage12(),
+      home: WidgetPage19(),
     );
   }
 }

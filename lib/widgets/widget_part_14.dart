@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WidgetPage12 extends StatelessWidget {
-  const WidgetPage12({
+class WidgetPage14 extends StatelessWidget {
+  const WidgetPage14({
     Key? key,
   }) : super(key: key);
 
@@ -22,9 +22,10 @@ class WidgetPage12 extends StatelessWidget {
         ],
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 width: 125,
@@ -57,6 +58,7 @@ class WidgetPage12 extends StatelessWidget {
             height: 20,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
                 width: 125,
