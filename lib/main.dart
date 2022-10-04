@@ -16,32 +16,30 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final List data = [
-    {
-      "title": "Microsoft",
-      "data": "Bill Gates",
-    },
-    {
-      "title": "Apple",
-      "data": "Steve Jobs",
-    },
-    {
-      "title": "Amazon",
-      "data": "Jeff Bezos",
-    },
+  late int currentBtNav;
+  List<Widget> showCurrentView = [
+    Center(
+      child: Text("Homepage"),
+    ),
+    Center(
+      child: Text("Profile"),
+    ),
+    Center(
+      child: Text("Notifications"),
+    ),
   ];
-
-  late String firstData;
 
   @override
   void initState() {
     // TODO: implement initState
-    firstData = data[0]["data"];
+    currentBtNav = 0;
     super.initState();
   }
 
@@ -49,30 +47,33 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Dropdown Flutter"),
+        title: Text("Bottom Navigation"),
         centerTitle: true,
+        backgroundColor: Colors.deepPurple,
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: DropdownButton(
-            value: firstData,
-            items: data
-                .map(
-                  (e) => DropdownMenuItem(
-                    child: Text("${e['title']}"),
-                    value: "${e['data']}",
-                  ),
-                )
-                .toList(),
-            onChanged: (value) {
-              setState(() {
-                firstData = value!;
-              });
-              print(firstData);
-            },
+      body: showCurrentView[currentBtNav],
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepPurple[400],
+        currentIndex: currentBtNav,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
           ),
-        ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle),
+            label: "Profile",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications_active),
+            label: "Notifications",
+          ),
+        ],
+        onTap: (value) {
+          setState(() {
+            currentBtNav = value;
+          });
+        },
       ),
     );
   }
