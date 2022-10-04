@@ -22,65 +22,88 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bottom Sheet Flutter"),
+        title: Text("Drawer"),
+        centerTitle: true,
+        backgroundColor: Colors.blueGrey[900],
       ),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: ElevatedButton(
-            onPressed: () {
-              showModalBottomSheet(
-                isDismissible: false,
-                context: context,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(24.0),
-                  ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            Container(
+              alignment: Alignment.bottomLeft,
+              padding: EdgeInsets.all(20),
+              width: double.infinity,
+              height: 200,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(12),
+                  bottomRight: Radius.circular(12),
                 ),
-                backgroundColor: Colors.white,
-                builder: (context) {
-                  return Container(
-                    height: 300,
-                    child: ListView(
-                      padding: EdgeInsets.only(top: 16, bottom: 16),
-                      children: [
-                        ListTile(
-                          leading: Icon(Icons.drive_folder_upload_outlined),
-                          title: Text("New Folder"),
-                        ),
-                        ListTile(
-                          leading: Icon(Icons.share),
-                          title: Text("Share"),
-                        ),
-                        ListTile(
-                          leading: Icon(Icons.replay_outlined),
-                          title: Text("Refresh"),
-                        ),
-                        ListTile(
-                          leading: Icon(Icons.more_horiz),
-                          title: Text("More"),
-                        ),
-                        ListTile(
-                          title: ElevatedButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text(
-                              "Close".toUpperCase(),
-                              style: TextStyle(fontSize: 14),
-                            ),
-                            style: ElevatedButton.styleFrom(
-                                minimumSize: Size.fromHeight(50)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              );
-            },
-            child: Text("Show Sheet"),
-          ),
+                color: Colors.black87,
+              ),
+              child: const Text(
+                "Jane Doe",
+                style: TextStyle(color: Colors.white, fontSize: 24),
+              ),
+            ),
+            Expanded(
+              child: ListView(
+                padding: EdgeInsets.only(top: 10),
+                children: [
+                  ListTile(
+                    onTap: () => print("Navigate to Homepage"),
+                    leading: Icon(Icons.home),
+                    title: Text("Homepage"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Completed Task"),
+                    leading: Icon(Icons.add_task),
+                    title: Text("Completed Task"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Add Task"),
+                    leading: Icon(Icons.task),
+                    title: Text("Add Task"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Sync"),
+                    leading: Icon(Icons.wifi_protected_setup),
+                    title: Text("Syncronize"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Note 1"),
+                    leading: Icon(Icons.note),
+                    title: Text("Note 1"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Note 2"),
+                    leading: Icon(Icons.note),
+                    title: Text("Note 2"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Note 3"),
+                    leading: Icon(Icons.note),
+                    title: Text("Note 3"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Note 4"),
+                    leading: Icon(Icons.note),
+                    title: Text("Note 4"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Settings"),
+                    leading: Icon(Icons.settings),
+                    title: Text("Settings"),
+                  ),
+                  ListTile(
+                    onTap: () => print("Navigate to Logout"),
+                    leading: Icon(Icons.logout),
+                    title: Text("Log Out"),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
