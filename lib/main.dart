@@ -16,69 +16,63 @@ class MyApp extends StatelessWidget {
 }
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
-
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
-  late TabController chatCtr = TabController(length: 4, vsync: this);
+class _HomePageState extends State<HomePage> {
+  final List data = [
+    {
+      "title": "Microsoft",
+      "data": "Bill Gates",
+    },
+    {
+      "title": "Apple",
+      "data": "Steve Jobs",
+    },
+    {
+      "title": "Amazon",
+      "data": "Jeff Bezos",
+    },
+  ];
+
+  late String firstData;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    firstData = data[0]["data"];
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "WhatsApp",
-          style: TextStyle(fontSize: 20),
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.more_vert),
-          ),
-        ],
-        centerTitle: false,
-        backgroundColor: Colors.teal[800],
-        bottom: TabBar(
-          controller: chatCtr,
-          tabs: [
-            Tab(
-              icon: Icon(Icons.camera_alt),
-            ),
-            Tab(
-              text: "Chats".toUpperCase(),
-            ),
-            Tab(
-              text: "Status".toUpperCase(),
-            ),
-            Tab(
-              text: "Calls".toUpperCase(),
-            ),
-          ],
-        ),
+        title: Text("Dropdown Flutter"),
+        centerTitle: true,
       ),
-      body: TabBarView(
-        controller: chatCtr,
-        children: [
-          Center(
-            child: Text("Camera"),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: DropdownButton(
+            value: firstData,
+            items: data
+                .map(
+                  (e) => DropdownMenuItem(
+                    child: Text("${e['title']}"),
+                    value: "${e['data']}",
+                  ),
+                )
+                .toList(),
+            onChanged: (value) {
+              setState(() {
+                firstData = value!;
+              });
+              print(firstData);
+            },
           ),
-          Center(
-            child: Text("Chats"),
-          ),
-          Center(
-            child: Text("Status"),
-          ),
-          Center(
-            child: Text("Calls"),
-          ),
-        ],
+        ),
       ),
     );
   }
